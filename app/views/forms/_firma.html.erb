@@ -1,0 +1,32 @@
+<div class="field" >
+			
+		<%= f.label "Firma Adı" %>
+		<%= f.text_field :firma_adi,:class => "boy"%>
+ </div>
+ <div class="field" >
+		<%= f.label "Başlama Tarihi" %>
+		<%= f.date_select :baslama,  :order => [:day, :month, :year] %><br/><br /><br />
+		<%= f.radio_button :bitis, 'Halen Çalışıyorum',:onclick=>"gizli5()" %> 
+		<%= f.label  'Halen Çalışıyorum', :value => 'Halen Çalışıyorum',:class =>"radiobutton" %>
+		<%= f.radio_button :bitis, 'Çalışmıyorum',:class =>"radiobuttonis2",:onclick=>"show5()" %>
+		<%= f.label  'Çalışmıyorum', :value => 'Çalışmıyorum',:class =>"radiobuttonis2label" %>
+  
+ </div>
+ <div class = "gizlicinsiyet5" >
+	 <div class="field" >
+			<%= f.label "Bitiş Tarihi" %>
+			<%= f.date_select :bitis,  :order => [:day, :month, :year] %><br />
+	 </div>
+ </div><br /><br />
+ <div class="field" >
+		<%= f.label "Çalıştığınız Sektör" %>
+		<%= f.select :sektor, ["Seçiniz","deneme1","deneme2"] %>
+ </div>
+ <div class="field" style= "position:relative;top:-76px;left:3.5in;" >
+		<%= f.label "Çalıştığınız Bölüm" %>
+		<%= f.select :bolum, ["Seçiniz","deneme1","deneme2"] %>
+ </div>
+ <div class="field" style= "position:relative;top:-155px;left:7in;" >
+		<%= f.label "Pozisyon" %>
+		<%= f.select :pozisyon, ["Seçiniz","deneme1","deneme2"] %>
+ </div>

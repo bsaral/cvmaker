@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  form_id: 1
+  kurs: MyString
+  sertifika_adi: MyString
+  yil: 2013-02-14 02:57:15
+
+two:
+  form_id: 1
+  kurs: MyString
+  sertifika_adi: MyString
+  yil: 2013-02-14 02:57:15

@@ -1,0 +1,20 @@
+<div class = "container">
+  <div class = "hero-unit" id = "konum" >
+    <h1 class = "boyut"> CV Makinası Nedir ? </h1>
+     <p class = "boyut"> Buralara birşeyler yazıp boyut ayarlanacak.dfhsfsdpfhsdfpısdfhjsdıfjsdfhsfhlxfsldfhda</p>
+   </div>
+   
+   <% if session[:user_id] == nil %>
+		<%= button_to "CV OLUŞTUR", "/login", :class => 'btn btn-large btn-success', \
+				style: "width:220px;position:absolute;top:4in;left:3in;" %>
+   <% else %>
+		<%= button_to "CV OLUŞTUR", "/form", :class => 'btn btn-large btn-success', \
+				style: "width:220px;position:absolute;top:4in;left:3in;" %>
+   <% end %>
+   
+   <%= button_to "CV REHBERİ", "#", :class => 'btn btn-large btn-info', \
+		style: "width:220px;position:absolute;top:4in;left:8in;" %>
+		
+</div>
+
+

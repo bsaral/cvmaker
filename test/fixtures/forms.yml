@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ad: MyString
+  soyad: MyString
+  uyruk: MyString
+  tc: MyString
+  cinsiyet: MyString
+  medeni: MyString
+  dogum: 2013-02-01 13:24:44
+  ehliyet: MyString
+  askerlik: MyString
+  il: MyString
+  ulke: MyString
+  ilce: MyString
+  sigara: MyString
+  engel: MyString
+  adres: MyString
+  evtel: MyString
+  istel: MyString
+  ceptel: MyString
+
+two:
+  ad: MyString
+  soyad: MyString
+  uyruk: MyString
+  tc: MyString
+  cinsiyet: MyString
+  medeni: MyString
+  dogum: 2013-02-01 13:24:44
+  ehliyet: MyString
+  askerlik: MyString
+  il: MyString
+  ulke: MyString
+  ilce: MyString
+  sigara: MyString
+  engel: MyString
+  adres: MyString
+  evtel: MyString
+  istel: MyString
+  ceptel: MyString

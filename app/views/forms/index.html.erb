@@ -1,0 +1,55 @@
+<h1>Listing forms</h1>
+
+<table>
+  <tr>
+    <th>Ad</th>
+    <th>Soyad</th>
+    <th>Uyruk</th>
+    <th>Tc</th>
+    <th>Cinsiyet</th>
+    <th>Medeni</th>
+    <th>Dogum</th>
+    <th>Ehliyet</th>
+    <th>Askerlik</th>
+    <th>Il</th>
+    <th>Ulke</th>
+    <th>Ilce</th>
+    <th>Sigara</th>
+    <th>Engel</th>
+    <th>Adres</th>
+    <th>Evtel</th>
+    <th>Ceptel</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @forms.each do |form| %>
+  <tr>
+    <td><%= form.ad %></td>
+    <td><%= form.soyad %></td>
+    <td><%= form.uyruk %></td>
+    <td><%= form.tc %></td>
+    <td><%= form.cinsiyet %></td>
+    <td><%= form.medeni %></td>
+    <td><%= form.dogum %></td>
+    <td><%= form.ehliyet %></td>
+    <td><%= form.askerlik %></td>
+    <td><%= form.il %></td>
+    <td><%= form.ulke %></td>
+    <td><%= form.ilce %></td>
+    <td><%= form.sigara %></td>
+    <td><%= form.engel %></td>
+    <td><%= form.adres %></td>
+    <td><%= form.evtel %></td>
+    <td><%= form.ceptel %></td>
+    <td><%= link_to 'Show', "/forms/#{form.id}" %></td>
+    <td><%= link_to 'Edit', edit_form_path(form) %></td>
+    <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Form', new_form_path %>

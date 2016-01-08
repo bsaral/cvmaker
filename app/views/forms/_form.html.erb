@@ -1,0 +1,393 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+      // Initialize Smart Wizard
+        $('#wizard').smartWizard();
+      
+  }); 
+  function setVisibility(id, visibility) {
+	document.getElementById(id).style.display = visibility;
+	}
+  function gizli(){
+         jQuery("div.gizlicinsiyet").hide(100);
+         jQuery("div.gizlicinsiyet3").hide(100);
+         jQuery("div.gizlicinsiyet4").hide(100);
+	 }
+
+  function show(){
+         jQuery("div.gizlicinsiyet").toggle(100);
+         jQuery("div.gizlicinsiyet3").hide(100);
+         jQuery("div.gizlicinsiyet4").hide(100);
+	 }
+  function show2(){
+		 jQuery("div.gizlicinsiyet").hide(100);
+		 jQuery("div.gizlicinsiyet4").hide(100);
+         jQuery("div.gizlicinsiyet3").show(100);
+	 }
+  function show3(){
+		 jQuery("div.gizlicinsiyet").hide(100);
+         jQuery("div.gizlicinsiyet3").hide(100);
+         jQuery("div.gizlicinsiyet4").toggle(100);
+	 }
+   function gizli5(){
+         jQuery("div.gizlicinsiyet5").hide(100);
+     }
+   function show5(){
+         jQuery("div.gizlicinsiyet5").show(100);
+     }
+     
+ 
+   
+ </script>
+
+
+
+<%= nested_form_for(@form) do |f| %>
+
+<div id="wizard" class="swMain">
+
+  <ul>
+    <li><a href="#step-1">
+          <label class="stepNumber">1</label>
+          <span class="stepDesc">
+             Kişisel Bilgiler<br />
+             <small>Personal İnformation</small>
+          </span>
+      </a></li>
+    <li><a href="#step-2">
+          <label class="stepNumber">2</label>
+          <span class="stepDesc">
+             Eğitim-İş Bilgileri<br />
+             <small>Education and Business Information</small>
+          </span>
+      </a></li>
+    <li><a href="#step-3">
+          <label class="stepNumber">3</label>
+          <span class="stepDesc">
+             Nitelikler-Referans<br />
+             <small>Qualifications-Reference</small>
+          </span>                   
+       </a></li>
+    <li><a href="#step-4">
+          <label class="stepNumber">4</label>
+          <span class="stepDesc">
+             Önyazı-Özgeçmiş<br />
+             <small>Cover Letter - Resume</small>
+          </span>                   
+      </a></li>
+    
+  </ul>
+  
+   <!-- KİŞİSEL BİLGİLER -->
+  
+  <div id="step-1">   
+      <h2 class="StepTitle">Kişisel Bilgiler</h2>
+      <div class = "konum">
+       <div class="field">
+		<%= f.label "Adınız(*)" %><br/>
+		<%= f.text_field :ad,:class => "boy" %>
+	  </div>
+	  <div class="field" id="soyadboy">
+		<%= f.label "Soyadınız(*)" %><br />
+		<%= f.text_field :soyad,:class => "boy" %>
+	  </div>
+	  <div class="field">
+		<%= f.label "Uyruk(*)" %><br />
+		<%= f.text_field :uyruk,:class => "boy" %>
+	  </div>
+	  <div class="field" id="soyadboy">
+		<%= f.label "TC Kimlik No" %><br />
+		<%= f.text_field :tc ,:class => "boy"%>
+	  </div>
+	  <div class="field" >
+		<%= f.label "Cinsiyet(*)" %><br /><br/>
+		<%= f.radio_button :cinsiyet, 'Kadın',:onclick=>"setVisibility('sub4', 'none')" %> 
+		<%= f.label  'Kadın', :value => 'Kadın',:class =>"radiobutton" %>
+		<%= f.radio_button :cinsiyet, 'Erkek',:class =>"radiobutton2",:onclick=>"setVisibility('sub4', 'inline')" %>
+		<%= f.label  'Erkek', :value => 'Erkek',:class =>"radiobutton2label" %>
+	  </div>
+	  <div class="field" id="selectbox">
+		<%= f.label "Medeni Hal" %><br />
+		<%= f.select :medeni, ["Seçiniz","Bekar","Evli"] %>
+	  </div>
+	  <div class="field" id="soyadboyradio">
+		<%= f.label :Ehliyet %><br /><br/>
+		<%= f.radio_button :ehliyet, 'Var' %> 
+		<%= f.label  'Var', :value => 'Var',:class =>"radiobutton" %>
+		<%= f.radio_button :ehliyet, 'Yok',:class =>"radiobutton2" %>
+		<%= f.label  'Yok', :value => 'Yok',:class =>"radiobutton2label" %>
+	  </div>
+	   <div class="field" id="datetime">
+		<%= f.label "Doğum Tarihi(*)" %><br />
+		<%= f.date_select :dogum,  :order => [:day, :month, :year] %>
+	  </div>
+	  <div class="field" id="ulke">
+		<%= f.label "Yaşadığınız Ülke" %><br />
+		<%= f.country_select :ulke, ["Turkey"] %>
+	  </div> 
+	  <div class="field" id="il">
+		<%= f.label "Yaşadığınız İl(*)" %><br />
+		<%= f.text_field :il %>
+	  </div>  
+	  <div class="field" id="ilce">
+		<%= f.label "Yaşadığınız İlçe(*)" %><br />
+		<%= f.text_field :ilce %>
+	  </div> 
+	  <div class="field" >
+		<%= f.label "Adres" %><br />
+		<%= f.text_area :adres ,style: "width:4in;height:100px;"%>
+	  </div> 
+	  <div class="field" id="ev" >
+		<%= f.label "Ev Telefonu" %><br />
+		<%= f.text_field :evtel,:class => "boy" %>
+	  </div> 
+	  <div class="field" id="cep" >
+		<%= f.label "Cep Telefonu(*)" %><br />
+		<%= f.text_field :ceptel,:class => "boy" %><br />
+	  </div> <br />
+	  <div class="gizlicinsiyet2" id="sub4">
+		  <div class="field" id="askerboy">
+				<%= f.label "Askerlik Durumu" %><br />
+				<%= f.select :askerlik, ["Seçiniz","Tamamlanmış","Muaf","Tecilli"] %><br />
+		  </div>
+	  </div><br />
+	  <div class="field" >
+		<%= f.label "Herhangi Bir Engeliniz Var mı ?" %><br />
+		<%= f.radio_button :engel, 'Var' ,:id => "engel1", :onclick=>"setVisibility('sub3', 'inline')" %> 
+		<%= f.label  'Var', :value => 'Var',:class =>"radiobutton" %>
+		<%= f.radio_button :engel, 'Yok',:class =>"radiobutton2" ,:id => "engel2",:onclick=>"setVisibility('sub3', 'none')"%>
+		<%= f.label  'Yok', :value => 'Yok',:class =>"radiobutton2label" %>
+		<div class="gizli" id="sub3">
+			<div class="field"  >
+				<%= f.label "Engeliniz Nedir ?" %><br />
+				<%= f.text_field :engel,:class => "boy" %>
+		    </div>
+	   </div>
+	  </div>
+	  <div class="field"  id="sigara">
+		<%= f.label "Sigara Kullanıyor musunuz ?" %><br /><br/>
+		<%= f.radio_button :sigara, 'Evet' %> 
+		<%= f.label  'Evet', :value => 'Evet',:class =>"radiobutton" %>
+		<%= f.radio_button :sigara, 'Hayır',:class =>"radiobutton2" %>
+		<%= f.label  'Hayır', :value => 'Hayır',:class =>"radiobutton2label" %>
+	  </div>
+	</div>
+  </div>
+    
+   <!-- EĞİTİM BİLGİLERİ -->  
+    
+  <div id="step-2">
+	<h2 class="StepTitle">Eğitim ve İş Bilgileri</h2>
+	<div class = "step2konum">
+	<h4 class="renk"> EĞİTİM BİLGİLERİ </h4>
+       <div class="field">
+			<%= f.label "Eğitim Seviyesi(*)" %><br/>
+			<% @educations = {'Seçiniz' => 0, 'İlköğretim' => 1,'Lise' => 2,'Yüksekokul' => 3,'Üniversite' => 4,'Yüksek Lisans/MBA' => 5,'Doktora/PHD' => 6} %>
+			<%= f.select :egitim , options_for_select(@educations.keys),\
+			{},\
+			 :onchange => "if( this.options[selectedIndex].text == 'Lise' ) {show()} 
+			 else if( this.options[selectedIndex].text == 'Üniversite' ) {show2()}
+			 else if (this.options[selectedIndex].text == 'İlköğretim'){show3()} 
+			 else if (this.options[selectedIndex].text == 'Seçiniz') {gizli()}
+			 else {show2()}" %>
+	   <div class="gizlicinsiyet4" >
+			<div class="field" >
+				<%= f.label "Okul Adı" %>
+				<%= f.text_field :lise_adi,:class => "boy"%><br /> 
+		  </div>
+	   </div>
+	   <div class="gizlicinsiyet" >
+	    <h4> LİSE BİLGİLERİ </h4>
+		  <div class="field" >
+				<%= f.label "Lise Türü" %>
+				<%= f.select :lise_tur, ["Seçiniz","Fen Lisesi","Anadolu Lisesi","Genel Liseler","İmam Hatip Lisesi","Meslek Lise","Askeri Lise","Güzel Sanatlar Lisesi","Anadolu Öğretmen Liseleri"],:class => "boy"%><br />
+		  </div>
+		  <div class="field" >
+				<%= f.label "Lise Adı" %>
+				<%= f.text_field :lise_adi,:class => "boy"%><br />
+		  </div>
+		  <div class="field" >
+				<%= f.label "Bölüm" %>
+				<%= f.select :lise_bol, ["Seçiniz","Sayısal","Sözel","Eşit Ağırlık","Mesleki"],:class => "boy"%><br />
+		  </div>
+		  <div class="field" >
+				<%= f.label "Mezuniyet Derecesi" %>
+				<%= f.number_field :lise_derece,:class => "boy"%><br />
+		  </div>
+		  <div class="field" >
+				<%= f.label "Başlama Tarihi" %>
+				<%= f.date_select :lise_baslangic,  :order => [:day, :month, :year] %><br />
+		  </div>
+		  <div class="field" >
+				<%= f.label "Mezuniyet Tarihi" %>
+				<%= f.date_select :lise_bitis,  :order => [:day, :month, :year] %><br />
+		  </div>
+	  </div>
+	  </div>
+	  
+	  <div class="gizlicinsiyet3" >
+	      <h4> LİSE BİLGİLERİ </h4>
+		  <div class="field" >
+				<%= f.label "Lise Türü" %>
+				<%= f.select :lise_tur, ["Seçiniz","Fen Lisesi","Anadolu Lisesi","Genel Liseler","İmam Hatip Lisesi","Meslek Lise","Askeri Lise","Güzel Sanatlar Lisesi","Anadolu Öğretmen Liseleri"],:class => "boy"%><br />
+		  </div>
+		  <div class="field" >
+				<%= f.label "Lise Adı" %>
+				<%= f.text_field :lise_adi,:class => "boy"%><br />
+		  </div>
+		  <div class="field" >
+				<%= f.label "Bölüm" %>
+				<%= f.select :lise_bol, ["Seçiniz","Sayısal","Sözel","Eşit Ağırlık","Mesleki"],:class => "boy"%><br />
+		  </div>
+		  <div class="field" >
+				<%= f.label "Mezuniyet Derecesi" %>
+				<%= f.number_field :lise_derece,:class => "boy"%><br />
+		  </div>
+		  <div class="field" >
+				<%= f.label "Başlama Tarihi" %>
+				<%= f.date_select :lise_baslangic,  :order => [:day, :month, :year] %><br />
+		  </div>
+		  <div class="field" >
+				<%= f.label "Mezuniyet Tarihi" %>
+				<%= f.date_select :lise_bitis,  :order => [:day, :month, :year] %><br />
+		  </div>
+	   
+		  <h4> ÜNİVERSİTE / YÜKSEK OKUL / YÜKSEK LİSANS / DOKTORA </h4>
+		  <div class="field" >
+				<%= f.label "Eğitim Seviyesi" %>
+				<%= f.select :seviye, ["Seçiniz","Yüksekokul","Üniversite","Genel Liseler","Yüksek Lisans/MBA","Doktora/PHD"]%><br />
+		  </div>
+		  <div class="field" >
+				<%= f.label "Üniversite Adı" %>
+				<%= f.select :uni_adi, ["Seçiniz","omü","katü"],:class => "boy"%><br />
+		  </div>
+		   <div class="field" >
+				<%= f.label "Fakülte/Bölüm" %>
+				<%= f.text_field :uni_adi,:class => "boy"%><br />
+		  </div>
+		  <div class="field" >
+				<%= f.label "Mezuniyet Derecesi" %>
+				<%= f.number_field :uni_derece,:class => "boy"%><br />
+		  </div>
+		  <div class="field" >
+				<%= f.label "Başlama Tarihi" %>
+				<%= f.date_select :uni_baslangic,  :order => [:day, :month, :year] %><br />
+		  </div>
+		  <div class="field" >
+				<%= f.label "Mezuniyet Tarihi" %>
+				<%= f.date_select :uni_bitis,  :order => [:day, :month, :year] %><br />
+		  </div>
+		  <div class="field" >
+			<%= f.label "Çift Anadal / Yan Dal" %><br /><br/>
+			<%= f.radio_button :uni_dal, 'Ekle',:onclick=>"setVisibility('sub5', 'inline')" %> 
+			<%= f.label  'Ekle', :value => 'Ekle',:class =>"radiobutton" %>
+			<div class="gizlicinsiyet2" id="sub5">
+				<div class="field" >
+					<%= f.label "Fakülte" %>
+					<%= f.text_field :dal_fak,:class => "boy"%>
+			  </div>
+			  <div class="field" >
+					<%= f.label "Bölüm" %>
+					<%= f.text_field :dal_bol,:class => "boy"%>
+			  </div>
+			</div>
+		 </div>
+	  </div><br /><br />
+  
+  <!-- İŞ DENEYİMİ -->
+     <h4 class = "renk"> İŞ DENEYİMLERİ </h4>
+     <%= f.fields_for :firmas do |builder| %>
+		<%= render "firma", :f => builder %>
+	 <% end %>
+	 <%= f.link_to_add "DENEYİM EKLE", :firmas,:class => "btn btn-info",:id => "dil"  %>
+     
+  
+    </div>
+  </div>        
+  
+  
+  
+  
+  
+  
+                
+  <div id="step-3">
+      <h2 class="StepTitle">Nitelikler ve Referanslar</h2>   
+      <div class = "step3konum">
+      
+      <!-- NİTELİKLER -->
+      <h4 class = "renk"> BİLDİĞİNİZ YABANCI DİLLER </h4></br>
+		 <%= f.fields_for :dils do |builder| %>
+			<%= render "dil", :f => builder %>
+		 <% end %>
+		 <%= f.link_to_add "DİL EKLE", :dils,:class => "btn btn-info",:id => "dil2"  %>
+	  
+	  <h4 class = "renk"> BİLGİSAYAR BİLGİLERİ </h4></br>
+	  <%= f.fields_for :bilgisayars do |builder| %>
+			<%= render "bilgisayar", :f => builder %>
+		 <% end %>
+		 <%= f.link_to_add "EKLE", :bilgisayars,:class => "btn btn-info",:id => "ekle"  %>
+		 
+	  <div class = "konum4">	 
+	  <h4 class = "renk"> PROJELERİNİZ </h4></br>
+	  <%= f.fields_for :projes do |builder| %>
+			<%= render "proje", :f => builder %>
+	  <% end %>
+	  <%= f.link_to_add "EKLE", :projes,:class => "btn btn-info",:id => "ekle2"  %>
+	  </div>
+	  
+	  <div class = "konum4">	
+	  <h4 class = "renk"> KURSLAR VE SERTİFİKALAR </h4></br>
+	  <%= f.fields_for :sertifikas do |builder| %>
+			<%= render "sertifika", :f => builder %>
+	  <% end %>
+	  <%= f.link_to_add "EKLE", :sertifikas,:class => "btn btn-info",:id => "ekle2"  %>
+	  </div>
+	  
+	  <div class = "konum4">	
+	  <h4 class = "renk"> REFERANS </h4></br>
+	  <%= f.fields_for :referans do |builder| %>
+			<%= render "referans", :f => builder %>
+	  <% end %>
+	  <%= f.link_to_add "EKLE", :referans,:class => "btn btn-info",:id => "ekle3"  %>
+	  </div>
+		
+	  
+
+
+
+	
+  </div>
+  </div>
+  <div id="step-4">
+      <h2 class="StepTitle">Önyazı ve Özgeçmiş</h2>   
+      <div class = "step3konum">
+      <div class="field" >
+			<h4 class = "renk"> ÖNYAZI</h4></br>
+			<%= f.text_area :onyazi, :style=>"width:6in;height:100px;"%><br /><br /><br />
+			
+	  </div>
+	  <div class="field" ><br /><br />
+			<h4 class = "renk"> ÖZGEÇMİŞ</h4></br>
+			<%= f.cktext_area :ozgecmis ,:toolbar => "Full",:class => 'span5',:height=>'300px'  %><br />
+	  </div>
+	  <div class="field" >
+			<h4 class = "renk"> RESİM </h4></br>
+			 <%= f.file_field :image %>
+	  </div>
+                     
+  </div>                   
+  </div>
+  
+</div>
+<%end%>
+
+
+
+
+
+
+
+
+  
+  
+  

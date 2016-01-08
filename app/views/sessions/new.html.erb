@@ -1,0 +1,29 @@
+<div class = "container">
+    <div class = "span7">
+	  <div class = "offset2">
+        <div>
+        <br>
+        <br>
+			<%= form_tag sessions_path,:class=>"form-horizontal" do %>
+				<legend style = "color:#357EC7;"> Kullanıcı Girişi </legend>
+			<% if flash[:error] %>
+            <div class = "alert alert-error">
+              <%= flash[:error] %>
+            <% end %>
+            </div>
+            <div class = "control-group success">
+            <label class = "control-label" style = "color:#41627E"> Kullanıcı Adınız </label>
+            <%= text_field_tag :username, params[:username], :style => "height:20px;width:4.5in;" %>
+            </div>
+            <br>
+            <div class="control-group success">
+             <label class = "control-label" style = "color:#41627E"> Parola </label>
+              <%= password_field_tag :password,"",:style => "height:20px;width:4.5in;" %>
+            </div>
+             <%= submit_tag "Giriş Yap",:class =>"btn btn-success", :style => "position:relative;top:50px;width:4.7in;height:35px;" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+</div>
+

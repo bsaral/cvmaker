@@ -1,0 +1,168 @@
+<p id="notice"><%= notice %></p>
+
+<% for form in @form.firmas %>
+      
+<p>
+  <b>firma</b>
+  <%= form.firma_adi %>
+</p>
+<p>
+  <b>bas:</b>
+  <%= form.baslama %>
+</p>
+<p>
+  <b>bit:</b>
+  <%= form.bitis %>
+</p>
+<p>
+  <b>sektor:</b>
+  <%= form.sektor%>
+</p>
+<p>
+  <b>bol:</b>
+  <%= form.bolum %>
+</p>
+<p>
+  <b>poz:</b>
+  <%= form.pozisyon %>
+</p>
+<% end %>
+
+
+
+
+<p>
+  <b>RESİM</b>
+  <%= image_tag @form.image_url(:thumb) if @form.image? %>
+</p>
+<p>
+  <b>lise ad:</b>
+  <%= @form.lise_adi %>
+</p>
+<p>
+  <b>bol:</b>
+  <%= @form.lise_bol %>
+</p>
+<p>
+  <b>tür:</b>
+  <%= @form.lise_tur %>
+</p>
+<p>
+  <b>derece:</b>
+  <%= @form.lise_derece %>
+</p>
+<p>
+  <b>baslangıç:</b>
+  <%= @form.lise_baslangic %>
+</p>
+<p>
+  <b>bitis:</b>
+  <%= @form.lise_bitis %>
+</p>
+<p>
+  <b>sev:</b>
+  <%= @form.seviye %>
+</p>
+<p>
+  <b>uni ad:</b>
+  <%= @form.uni_adi %>
+</p>
+<p>
+  <b>fak:</b>
+  <%= @form.fakulte %>
+</p>
+
+<p>
+  <b>dere:</b>
+  <%= @form.uni_derece %>
+</p>
+<p>
+  <b>bas:</b>
+  <%= @form.uni_baslangic %>
+</p>
+<p>
+  <b>bit:</b>
+  <%= @form.uni_bitis %>
+</p>
+
+<p>
+  <b>dal:</b>
+  <%= @form.uni_dal %>
+</p>
+<p>
+  <b>dal fak:</b>
+  <%= @form.dal_fak %>
+</p>
+<p>
+  <b>dal bol:</b>
+  <%= @form.dal_bol %>
+</p>
+
+<p>
+  <b>Cinsiyet:</b>
+  <%= @form.cinsiyet %>
+</p>
+
+<p>
+  <b>Medeni:</b>
+  <%= @form.medeni %>
+</p>
+
+<p>
+  <b>Dogum:</b>
+  <%= @form.dogum %>
+</p>
+
+<p>
+  <b>Ehliyet:</b>
+  <%= @form.ehliyet %>
+</p>
+
+<p>
+  <b>Askerlik:</b>
+  <%= @form.askerlik %>
+</p>
+
+<p>
+  <b>Il:</b>
+  <%= @form.il %>
+</p>
+
+<p>
+  <b>Ulke:</b>
+  <%= @form.ulke %>
+</p>
+
+<p>
+  <b>Ilce:</b>
+  <%= @form.ilce %>
+</p>
+
+<p>
+  <b>Sigara:</b>
+  <%= @form.sigara %>
+</p>
+
+<p>
+  <b>Engel:</b>
+  <%= @form.engel %>
+</p>
+
+<p>
+  <b>Adres:</b>
+  <%= @form.adres %>
+</p>
+
+<p>
+  <b>Evtel:</b>
+  <%= @form.evtel %>
+</p>
+
+<p>
+  <b>Ceptel:</b>
+  <%= @form.ceptel %>
+</p>
+
+
+<%= link_to 'Edit', edit_form_path(@form) %> |
+<%= link_to 'Back', forms_path %>

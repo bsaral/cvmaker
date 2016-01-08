@@ -1,0 +1,1894 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (155.0ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (244.2ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (13.8ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20130130093732)
+  [1m[35m (90.5ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `password_digest` varchar(255), `role` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (32.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130130093732')[0m
+Migrating to CreateForms (20130201112444)
+  [1m[35m (74.6ms)[0m  CREATE TABLE `forms` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `ad` varchar(255), `soyad` varchar(255), `uyruk` varchar(255), `tc` varchar(255), `cinsiyet` varchar(255), `medeni` varchar(255), `dogum` datetime, `ehliyet` varchar(255), `askerlik` varchar(255), `il` varchar(255), `ulke` varchar(255), `ilce` varchar(255), `sigara` varchar(255), `engel` varchar(255), `adres` varchar(255), `evtel` varchar(255), `ceptel` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (43.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130201112444')[0m
+Migrating to AddEgitimOnForms (20130206104527)
+  [1m[35m (378.3ms)[0m  ALTER TABLE `forms` ADD `egitim` varchar(255)
+  [1m[36m (223.0ms)[0m  [1mALTER TABLE `forms` ADD `okul_adi` varchar(255)[0m
+  [1m[35m (225.2ms)[0m  ALTER TABLE `forms` ADD `lise_adi` varchar(255)
+  [1m[36m (233.4ms)[0m  [1mALTER TABLE `forms` ADD `lise_bol` varchar(255)[0m
+  [1m[35m (245.4ms)[0m  ALTER TABLE `forms` ADD `lise_tur` varchar(255)
+  [1m[36m (245.0ms)[0m  [1mALTER TABLE `forms` ADD `lise_derece` int(11)[0m
+  [1m[35m (212.0ms)[0m  ALTER TABLE `forms` ADD `lise_baslangic` datetime
+  [1m[36m (190.0ms)[0m  [1mALTER TABLE `forms` ADD `lise_bitis` datetime[0m
+  [1m[35m (211.1ms)[0m  ALTER TABLE `forms` ADD `seviye` varchar(255)
+  [1m[36m (223.2ms)[0m  [1mALTER TABLE `forms` ADD `uni_adi` varchar(255)[0m
+  [1m[35m (222.8ms)[0m  ALTER TABLE `forms` ADD `fakulte` varchar(255)
+  [1m[36m (224.9ms)[0m  [1mALTER TABLE `forms` ADD `uni_derece` int(11)[0m
+  [1m[35m (234.1ms)[0m  ALTER TABLE `forms` ADD `uni_baslangic` datetime
+  [1m[36m (223.0ms)[0m  [1mALTER TABLE `forms` ADD `uni_bitis` datetime[0m
+  [1m[35m (223.1ms)[0m  ALTER TABLE `forms` ADD `uni_dal` varchar(255)
+  [1m[36m (634.1ms)[0m  [1mALTER TABLE `forms` ADD `dal_fak` varchar(255)[0m
+  [1m[35m (223.1ms)[0m  ALTER TABLE `forms` ADD `dal_bol` varchar(255)
+  [1m[36m (44.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130206104527')[0m
+Migrating to CreateFirmas (20130213215212)
+  [1m[35m (86.9ms)[0m  CREATE TABLE `firmas` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `form_id` int(11), `firma_adi` varchar(255), `baslama` datetime, `bitis` datetime, `sektor` varchar(255), `bolum` varchar(255), `pozisyon` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (44.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130213215212')[0m
+Migrating to CreateDils (20130213231005)
+  [1m[35m (87.9ms)[0m  CREATE TABLE `dils` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `form_id` int(11), `dil_adi` varchar(255), `dil_seviye` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (44.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130213231005')[0m
+Migrating to CreateBilgisayars (20130213232109)
+  [1m[35m (88.0ms)[0m  CREATE TABLE `bilgisayars` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `form_id` int(11), `kategori` varchar(255), `bilgi` varchar(255), `seviye` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (44.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130213232109')[0m
+Migrating to CreateProjes (20130213234246)
+  [1m[35m (98.6ms)[0m  CREATE TABLE `projes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `form_id` int(11), `proje_adi` varchar(255), `site` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (44.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130213234246')[0m
+Migrating to CreateSertifikas (20130214005715)
+  [1m[35m (88.0ms)[0m  CREATE TABLE `sertifikas` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `form_id` int(11), `kurs` varchar(255), `sertifika_adi` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (44.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130214005715')[0m
+Migrating to CreateReferans (20130214011630)
+  [1m[35m (99.2ms)[0m  CREATE TABLE `referans` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `form_id` int(11), `ref_ad` varchar(255), `ref_poz` varchar(255), `mail` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (44.1ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130214011630')[0m
+Migrating to AddStep4OnForms (20130216191710)
+  [1m[35m (334.3ms)[0m  ALTER TABLE `forms` ADD `onyazi` text
+  [1m[36m (221.5ms)[0m  [1mALTER TABLE `forms` ADD `ozgecmis` text[0m
+  [1m[35m (33.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130216191710')
+Migrating to CreateCkeditorAssets (20130216212701)
+  [1m[36m (86.6ms)[0m  [1mCREATE TABLE `ckeditor_assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `data_file_name` varchar(255) NOT NULL, `data_content_type` varchar(255), `data_file_size` int(11), `assetable_id` int(11), `assetable_type` varchar(30), `type` varchar(25), `guid` varchar(10), `locale` tinyint DEFAULT 0, `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (355.6ms)[0m  CREATE INDEX `idx_assetable_type` ON `ckeditor_assets` (`assetable_type`, `type`, `assetable_id`)
+  [1m[36m (189.2ms)[0m  [1mCREATE INDEX `fk_assetable` ON `ckeditor_assets` (`assetable_type`, `assetable_id`)[0m
+  [1m[35m (177.7ms)[0m  CREATE INDEX `fk_user` ON `ckeditor_assets` (`user_id`)
+  [1m[36m (44.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130216212701')[0m
+Migrating to AddImageToForms (20130216212702)
+  [1m[35m (230.3ms)[0m  ALTER TABLE `forms` ADD `image` varchar(255)
+  [1m[36m (43.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130216212702')[0m
+  [1m[35m (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`created_at`, `password_digest`, `role`, `updated_at`, `username`) VALUES ('2016-01-07 16:19:25', '$2a$10$EWeD80CunWVcoJYGgjm13eKDnYG1IPbJ52r0VQF3LLIizNQNaBph.', 'guest', '2016-01-07 16:19:25', 'bsaral')[0m
+  [1m[35m (58.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`created_at`, `password_digest`, `role`, `updated_at`, `username`) VALUES ('2016-01-07 16:19:25', '$2a$10$KQ6/vOZHHlyraM4NPQyVZeWnbNjZlH7JX7JCHQ/B02ZziHa83Xa5W', 'guest', '2016-01-07 16:19:25', 'person')
+  [1m[36m (37.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`created_at`, `password_digest`, `role`, `updated_at`, `username`) VALUES ('2016-01-07 16:19:25', '$2a$10$lGszixH4Z4hv4eyC2tByguY.BZGQnZ89Mm0SseFeH2NQeESNXe2Pq', 'manager', '2016-01-07 16:19:25', 'boss')[0m
+  [1m[35m (36.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`created_at`, `password_digest`, `role`, `updated_at`, `username`) VALUES ('2016-01-07 16:19:25', '$2a$10$HGNxDcZL5RTHUqrVRQkcfeHADUMEnonfQC8LPBeTGkPftKFfA1/Ri', 'admin', '2016-01-07 16:19:25', 'admin')
+  [1m[36m (83.6ms)[0m  [1mCOMMIT[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2016-01-07 18:19:49 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` IS NULL LIMIT 1[0m
+  Rendered home/index.html.erb within layouts/application (8.1ms)
+Compiled bootstrap_form.css  (0ms)  (pid 25026)
+Compiled bootstrap-formhelpers-countries.flags.css  (0ms)  (pid 25026)
+Compiled bootstrap-formhelpers.css  (0ms)  (pid 25026)
+Compiled bootstrap.css  (1ms)  (pid 25026)
+Compiled bootstrap.min.css  (0ms)  (pid 25026)
+Compiled demo.css  (0ms)  (pid 25026)
+Compiled forms.css  (80ms)  (pid 25026)
+Compiled main.css  (0ms)  (pid 25026)
+Compiled scaffolds.css  (13ms)  (pid 25026)
+Compiled sessions.css  (1ms)  (pid 25026)
+Compiled smart_wizard.css  (0ms)  (pid 25026)
+Compiled token-input-facebook.css  (0ms)  (pid 25026)
+Compiled token-input.css  (0ms)  (pid 25026)
+Compiled application.css  (595ms)  (pid 25026)
+Compiled jquery.js  (2ms)  (pid 25026)
+Compiled jquery_ujs.js  (0ms)  (pid 25026)
+Compiled jquery-popover.js  (0ms)  (pid 25026)
+Compiled bootstrap-dropdown.js  (0ms)  (pid 25026)
+Compiled bootstrap-formhelpers-countries.en_US.js  (0ms)  (pid 25026)
+Compiled bootstrap-formhelpers-countries.js  (0ms)  (pid 25026)
+Compiled bootstrap-formhelpers-phone.format.js  (0ms)  (pid 25026)
+Compiled bootstrap-formhelpers-phone.js  (0ms)  (pid 25026)
+Compiled bootstrap-popover.js  (0ms)  (pid 25026)
+Compiled forms.js  (506ms)  (pid 25026)
+Compiled jquery-1.3.2.min.js  (0ms)  (pid 25026)
+Compiled jquery-1.4.2.min.js  (0ms)  (pid 25026)
+Compiled jquery-1.4.4.min.js  (0ms)  (pid 25026)
+Compiled jquery-1.7.2.min.js  (1ms)  (pid 25026)
+Compiled jquery-latest.js  (1ms)  (pid 25026)
+Compiled jquery-ui-1.8.7.min.js  (1ms)  (pid 25026)
+Compiled jquery.min.js  (1ms)  (pid 25026)
+Compiled jquery.smartWizard-2.0.js  (0ms)  (pid 25026)
+Compiled jquery.smartWizard-2.0.min.js  (0ms)  (pid 25026)
+Compiled jquery.tokeninput.js  (0ms)  (pid 25026)
+Compiled jquery.ui.addresspicker.js  (0ms)  (pid 25026)
+Compiled nested_form.js  (0ms)  (pid 25026)
+Compiled sessions.js  (1ms)  (pid 25026)
+Compiled application.js  (1455ms)  (pid 25026)
+Completed 200 OK in 2529ms (Views: 2417.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /application.css - 200 OK (20ms)
+
+
+Started GET "/assets/bootstrap_form.css?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /bootstrap_form.css - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /bootstrap.css - 200 OK (2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /bootstrap.min.css - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.flags.css?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /bootstrap-formhelpers-countries.flags.css - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap-formhelpers.css?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /bootstrap-formhelpers.css - 200 OK (38ms)
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /demo.css - 200 OK (1ms)
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /forms.css - 200 OK (1ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /main.css - 200 OK (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /scaffolds.css - 200 OK (1ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /sessions.css - 200 OK (1ms)
+
+
+Started GET "/assets/smart_wizard.css?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /smart_wizard.css - 200 OK (1ms)
+
+
+Started GET "/assets/token-input-facebook.css?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /token-input-facebook.css - 200 OK (1ms)
+
+
+Started GET "/assets/token-input.css?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /token-input.css - 200 OK (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery-popover.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery-popover.js - 200 OK (3ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /bootstrap-dropdown.js - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.en_US.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /bootstrap-formhelpers-countries.en_US.js - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /bootstrap-formhelpers-countries.js - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.format.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /bootstrap-formhelpers-phone.format.js - 200 OK (2ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /bootstrap-popover.js - 200 OK (7ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /bootstrap-formhelpers-phone.js - 200 OK (1ms)
+
+
+Started GET "/assets/forms.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /forms.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery-1.3.2.min.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery-1.3.2.min.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery-1.4.2.min.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery-1.4.2.min.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery-1.4.4.min.js - 200 OK (6ms)
+
+
+Started GET "/assets/jquery-1.7.2.min.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery-1.7.2.min.js - 200 OK (13ms)
+
+
+Started GET "/assets/jquery-latest.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery-latest.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery.smartWizard-2.0.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery.min.js - 200 OK (5ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery-ui-1.8.7.min.js - 200 OK (8ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.min.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery.smartWizard-2.0.min.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.ui.addresspicker.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery.ui.addresspicker.js - 200 OK (48ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery.tokeninput.js - 200 OK (2ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /nested_form.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /application.js - 200 OK (32ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /sessions.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery-latest.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery-latest.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-07 18:19:52 +0200
+Served asset /jquery.min.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2016-01-08 09:55:43 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` IS NULL LIMIT 1[0m
+  Rendered home/index.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 852ms (Views: 682.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /application.css - 200 OK (8ms)
+
+
+Started GET "/assets/bootstrap-formhelpers.css?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /bootstrap-formhelpers.css - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /bootstrap.css - 200 OK (2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /bootstrap.min.css - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.flags.css?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /bootstrap-formhelpers-countries.flags.css - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap_form.css?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /bootstrap_form.css - 200 OK (1ms)
+
+
+Started GET "/assets/demo.css?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /demo.css - 200 OK (1ms)
+
+
+Started GET "/assets/forms.css?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /forms.css - 200 OK (5ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /scaffolds.css - 200 OK (1ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /main.css - 200 OK (1ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /sessions.css - 200 OK (1ms)
+
+
+Started GET "/assets/smart_wizard.css?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /smart_wizard.css - 200 OK (1ms)
+
+
+Started GET "/assets/token-input-facebook.css?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /token-input-facebook.css - 200 OK (3ms)
+
+
+Started GET "/assets/token-input.css?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /token-input.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /jquery-popover.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/forms.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:44 +0200
+Served asset /forms.js - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /bootstrap-formhelpers-phone.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /sessions.js - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /bootstrap-formhelpers-countries.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.format.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /bootstrap-formhelpers-phone.format.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.en_US.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /bootstrap-formhelpers-countries.en_US.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /application.js - 200 OK (60ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.3.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /jquery-1.3.2.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery-1.4.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /jquery-1.4.2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.7.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /jquery-1.7.2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /jquery-1.4.4.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-latest.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /jquery-latest.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /jquery.smartWizard-2.0.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /jquery.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /jquery.smartWizard-2.0.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.ui.addresspicker.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /jquery.ui.addresspicker.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /jquery.tokeninput.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /nested_form.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:45 +0200
+Served asset /nested_form.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-01-08 09:55:49 +0200
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_up"):
+  actionpack (3.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.11) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.11) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.4) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.4) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.11) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.4) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/application.rb:223:in `call'
+  rack (1.4.4) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.11) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.4) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"0nUoD26fge/GtvmpxCThOKUv2prUnzX/FL92I0J0SuE="}
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 32ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /jquery-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.en_US.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /bootstrap-formhelpers-countries.en_US.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /bootstrap-formhelpers-countries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.format.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /bootstrap-formhelpers-phone.format.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /bootstrap-formhelpers-phone.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.3.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /jquery-1.3.2.min.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery-1.4.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /jquery-1.4.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /jquery-1.4.4.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.7.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /jquery-1.7.2.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery-latest.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /jquery-latest.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /jquery.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /jquery.smartWizard-2.0.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /jquery.smartWizard-2.0.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.addresspicker.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /jquery.ui.addresspicker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:55:56 +0200
+Served asset /nested_form.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` IS NULL LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 46ms (Views: 44.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.en_US.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /bootstrap-formhelpers-countries.en_US.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /bootstrap-formhelpers-countries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.format.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /bootstrap-formhelpers-phone.format.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /bootstrap-formhelpers-phone.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.3.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery-1.3.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.4.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery-1.4.2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery-1.4.4.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery-1.7.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery-1.7.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-latest.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery-latest.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery.smartWizard-2.0.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery.smartWizard-2.0.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.addresspicker.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery.ui.addresspicker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /nested_form.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /jquery.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:00 +0200
+Served asset /nested_form.js - 304 Not Modified (0ms)
+
+
+Started POST "/" for 127.0.0.1 at 2016-01-08 09:56:01 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"authenticity_token"=>"0nUoD26fge/GtvmpxCThOKUv2prUnzX/FL92I0J0SuE="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` IS NULL LIMIT 1[0m
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:01 +0200
+Served asset /jquery.js - 304 Not Modified (18ms)
+
+
+Started GET "/assets/jquery-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:01 +0200
+Served asset /jquery-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.en_US.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:01 +0200
+Served asset /bootstrap-formhelpers-countries.en_US.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:01 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:01 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:01 +0200
+Served asset /bootstrap-formhelpers-countries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.format.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /bootstrap-formhelpers-phone.format.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /bootstrap-formhelpers-phone.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.3.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /jquery-1.3.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.4.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /jquery-1.4.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.7.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /jquery-1.7.2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /jquery-1.4.4.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-latest.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /jquery-latest.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /jquery.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /jquery.smartWizard-2.0.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /jquery.smartWizard-2.0.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.addresspicker.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /jquery.ui.addresspicker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /nested_form.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /jquery.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:02 +0200
+Served asset /nested_form.js - 304 Not Modified (0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Processing by SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"0nUoD26fge/GtvmpxCThOKUv2prUnzX/FL92I0J0SuE="}
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 17ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.en_US.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /bootstrap-formhelpers-countries.en_US.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /bootstrap-formhelpers-countries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.format.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /bootstrap-formhelpers-phone.format.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /bootstrap-formhelpers-phone.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.3.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery-1.3.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.4.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery-1.4.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery-1.4.4.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.7.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery-1.7.2.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery-latest.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery-latest.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery.smartWizard-2.0.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery.smartWizard-2.0.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.addresspicker.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery.ui.addresspicker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /nested_form.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /jquery.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:06 +0200
+Served asset /nested_form.js - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2016-01-08 09:56:33 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0nUoD26fge/GtvmpxCThOKUv2prUnzX/FL92I0J0SuE=", "username"=>"admin", "password"=>"[FILTERED]", "commit"=>"Giriş Yap"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'admin' LIMIT 1
+Completed 500 Internal Server Error in 131ms
+
+ActionView::MissingTemplate - Missing template sessions/create, application/create with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :coffee]}. Searched in:
+  * "/home/betul/cvmaker/app/views"
+  * "/var/lib/gems/1.9.1/gems/ckeditor-3.4.2.pre/app/views"
+  * "/var/lib/gems/1.9.1/gems/devise-1.1.rc0/app/views"
+  * "/var/lib/gems/1.9.1/gems/twitter-bootstrap-rails-2.2.0/app/views"
+:
+  (gem) actionpack-3.2.11/lib/action_view/path_set.rb:58:in `find'
+  (gem) actionpack-3.2.11/lib/action_view/lookup_context.rb:109:in `find'
+  (gem) actionpack-3.2.11/lib/action_view/renderer/abstract_renderer.rb:3:in `find_template'
+  (gem) actionpack-3.2.11/lib/action_view/renderer/template_renderer.rb:34:in `determine_template'
+  (gem) actionpack-3.2.11/lib/action_view/renderer/template_renderer.rb:10:in `render'
+  (gem) actionpack-3.2.11/lib/action_view/renderer/renderer.rb:36:in `render_template'
+  (gem) actionpack-3.2.11/lib/action_view/renderer/renderer.rb:17:in `render'
+  (gem) actionpack-3.2.11/lib/abstract_controller/rendering.rb:110:in `_render_template'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  (gem) actionpack-3.2.11/lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  (gem) actionpack-3.2.11/lib/abstract_controller/rendering.rb:88:in `render'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/rendering.rb:16:in `render'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  (gem) activesupport-3.2.11/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /usr/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  (gem) activesupport-3.2.11/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  (gem) activerecord-3.2.11/lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/instrumentation.rb:39:in `render'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  (gem) actionpack-3.2.11/lib/abstract_controller/base.rb:167:in `process_action'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  (gem) actionpack-3.2.11/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:414:in `_run__3573854445155963863__process_action__4119897570178693794__callbacks'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:405:in `__run_callback'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  (gem) actionpack-3.2.11/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  (gem) activesupport-3.2.11/lib/active_support/notifications.rb:123:in `block in instrument'
+  (gem) activesupport-3.2.11/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  (gem) activesupport-3.2.11/lib/active_support/notifications.rb:123:in `instrument'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  (gem) activerecord-3.2.11/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  (gem) actionpack-3.2.11/lib/abstract_controller/base.rb:121:in `process'
+  (gem) actionpack-3.2.11/lib/abstract_controller/rendering.rb:45:in `process'
+  (gem) actionpack-3.2.11/lib/action_controller/metal.rb:203:in `dispatch'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  (gem) actionpack-3.2.11/lib/action_controller/metal.rb:246:in `block in action'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:73:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:36:in `call'
+  (gem) journey-1.0.4/lib/journey/router.rb:68:in `block in call'
+  (gem) journey-1.0.4/lib/journey/router.rb:56:in `each'
+  (gem) journey-1.0.4/lib/journey/router.rb:56:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:601:in `call'
+  (gem) warden-0.10.7/lib/warden/manager.rb:35:in `block in call'
+  (gem) warden-0.10.7/lib/warden/manager.rb:34:in `catch'
+  (gem) warden-0.10.7/lib/warden/manager.rb:34:in `call'
+  (gem) better_errors-0.3.2/lib/better_errors/middleware.rb:51:in `app_call'
+  (gem) better_errors-0.3.2/lib/better_errors/middleware.rb:45:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  (gem) rack-1.4.4/lib/rack/etag.rb:23:in `call'
+  (gem) rack-1.4.4/lib/rack/conditionalget.rb:35:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/head.rb:14:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/flash.rb:242:in `call'
+  (gem) rack-1.4.4/lib/rack/session/abstract/id.rb:210:in `context'
+  (gem) rack-1.4.4/lib/rack/session/abstract/id.rb:205:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  (gem) ckeditor-3.4.2.pre/lib/ckeditor/middleware.rb:15:in `call'
+  (gem) activerecord-3.2.11/lib/active_record/query_cache.rb:64:in `call'
+  (gem) activerecord-3.2.11/lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:405:in `_run__843645296754566714__call__4426020624874689616__callbacks'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:405:in `__run_callback'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  (gem) railties-3.2.11/lib/rails/rack/logger.rb:32:in `call_app'
+  (gem) railties-3.2.11/lib/rails/rack/logger.rb:16:in `block in call'
+  (gem) activesupport-3.2.11/lib/active_support/tagged_logging.rb:22:in `tagged'
+  (gem) railties-3.2.11/lib/rails/rack/logger.rb:16:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  (gem) rack-1.4.4/lib/rack/methodoverride.rb:21:in `call'
+  (gem) rack-1.4.4/lib/rack/runtime.rb:17:in `call'
+  (gem) activesupport-3.2.11/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  (gem) rack-1.4.4/lib/rack/lock.rb:15:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/static.rb:62:in `call'
+  (gem) railties-3.2.11/lib/rails/engine.rb:479:in `call'
+  (gem) railties-3.2.11/lib/rails/application.rb:223:in `call'
+  (gem) rack-1.4.4/lib/rack/content_length.rb:14:in `call'
+  (gem) railties-3.2.11/lib/rails/rack/log_tailer.rb:17:in `call'
+  (gem) rack-1.4.4/lib/rack/handler/webrick.rb:59:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/38095020/variables" for 127.0.0.1 at 2016-01-08 09:56:33 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /jquery-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /bootstrap-formhelpers-countries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.en_US.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /bootstrap-formhelpers-countries.en_US.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.format.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /bootstrap-formhelpers-phone.format.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /bootstrap-formhelpers-phone.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.3.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /jquery-1.3.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.4.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /jquery-1.4.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /jquery-1.4.4.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.7.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /jquery-1.7.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /jquery.smartWizard-2.0.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.addresspicker.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:37 +0200
+Served asset /jquery.ui.addresspicker.js - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2016-01-08 09:56:43 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0nUoD26fge/GtvmpxCThOKUv2prUnzX/FL92I0J0SuE=", "username"=>"admin", "password"=>"[FILTERED]", "commit"=>"Giriş Yap"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` = 'admin' LIMIT 1[0m
+Completed 500 Internal Server Error in 87ms
+
+ActionView::MissingTemplate - Missing template sessions/create, application/create with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :coffee]}. Searched in:
+  * "/home/betul/cvmaker/app/views"
+  * "/var/lib/gems/1.9.1/gems/ckeditor-3.4.2.pre/app/views"
+  * "/var/lib/gems/1.9.1/gems/devise-1.1.rc0/app/views"
+  * "/var/lib/gems/1.9.1/gems/twitter-bootstrap-rails-2.2.0/app/views"
+:
+  (gem) actionpack-3.2.11/lib/action_view/path_set.rb:58:in `find'
+  (gem) actionpack-3.2.11/lib/action_view/lookup_context.rb:109:in `find'
+  (gem) actionpack-3.2.11/lib/action_view/renderer/abstract_renderer.rb:3:in `find_template'
+  (gem) actionpack-3.2.11/lib/action_view/renderer/template_renderer.rb:34:in `determine_template'
+  (gem) actionpack-3.2.11/lib/action_view/renderer/template_renderer.rb:10:in `render'
+  (gem) actionpack-3.2.11/lib/action_view/renderer/renderer.rb:36:in `render_template'
+  (gem) actionpack-3.2.11/lib/action_view/renderer/renderer.rb:17:in `render'
+  (gem) actionpack-3.2.11/lib/abstract_controller/rendering.rb:110:in `_render_template'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  (gem) actionpack-3.2.11/lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  (gem) actionpack-3.2.11/lib/abstract_controller/rendering.rb:88:in `render'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/rendering.rb:16:in `render'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  (gem) activesupport-3.2.11/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /usr/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  (gem) activesupport-3.2.11/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  (gem) activerecord-3.2.11/lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/instrumentation.rb:39:in `render'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  (gem) actionpack-3.2.11/lib/abstract_controller/base.rb:167:in `process_action'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  (gem) actionpack-3.2.11/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:414:in `_run__3573854445155963863__process_action__4119897570178693794__callbacks'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:405:in `__run_callback'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  (gem) actionpack-3.2.11/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  (gem) activesupport-3.2.11/lib/active_support/notifications.rb:123:in `block in instrument'
+  (gem) activesupport-3.2.11/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  (gem) activesupport-3.2.11/lib/active_support/notifications.rb:123:in `instrument'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  (gem) activerecord-3.2.11/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  (gem) actionpack-3.2.11/lib/abstract_controller/base.rb:121:in `process'
+  (gem) actionpack-3.2.11/lib/abstract_controller/rendering.rb:45:in `process'
+  (gem) actionpack-3.2.11/lib/action_controller/metal.rb:203:in `dispatch'
+  (gem) actionpack-3.2.11/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  (gem) actionpack-3.2.11/lib/action_controller/metal.rb:246:in `block in action'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:73:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:36:in `call'
+  (gem) journey-1.0.4/lib/journey/router.rb:68:in `block in call'
+  (gem) journey-1.0.4/lib/journey/router.rb:56:in `each'
+  (gem) journey-1.0.4/lib/journey/router.rb:56:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:601:in `call'
+  (gem) warden-0.10.7/lib/warden/manager.rb:35:in `block in call'
+  (gem) warden-0.10.7/lib/warden/manager.rb:34:in `catch'
+  (gem) warden-0.10.7/lib/warden/manager.rb:34:in `call'
+  (gem) better_errors-0.3.2/lib/better_errors/middleware.rb:51:in `app_call'
+  (gem) better_errors-0.3.2/lib/better_errors/middleware.rb:45:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  (gem) rack-1.4.4/lib/rack/etag.rb:23:in `call'
+  (gem) rack-1.4.4/lib/rack/conditionalget.rb:35:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/head.rb:14:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/flash.rb:242:in `call'
+  (gem) rack-1.4.4/lib/rack/session/abstract/id.rb:210:in `context'
+  (gem) rack-1.4.4/lib/rack/session/abstract/id.rb:205:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  (gem) ckeditor-3.4.2.pre/lib/ckeditor/middleware.rb:15:in `call'
+  (gem) activerecord-3.2.11/lib/active_record/query_cache.rb:64:in `call'
+  (gem) activerecord-3.2.11/lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:405:in `_run__843645296754566714__call__4426020624874689616__callbacks'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:405:in `__run_callback'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  (gem) railties-3.2.11/lib/rails/rack/logger.rb:32:in `call_app'
+  (gem) railties-3.2.11/lib/rails/rack/logger.rb:16:in `block in call'
+  (gem) activesupport-3.2.11/lib/active_support/tagged_logging.rb:22:in `tagged'
+  (gem) railties-3.2.11/lib/rails/rack/logger.rb:16:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  (gem) rack-1.4.4/lib/rack/methodoverride.rb:21:in `call'
+  (gem) rack-1.4.4/lib/rack/runtime.rb:17:in `call'
+  (gem) activesupport-3.2.11/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  (gem) rack-1.4.4/lib/rack/lock.rb:15:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/static.rb:62:in `call'
+  (gem) railties-3.2.11/lib/rails/engine.rb:479:in `call'
+  (gem) railties-3.2.11/lib/rails/application.rb:223:in `call'
+  (gem) rack-1.4.4/lib/rack/content_length.rb:14:in `call'
+  (gem) railties-3.2.11/lib/rails/rack/log_tailer.rb:17:in `call'
+  (gem) rack-1.4.4/lib/rack/handler/webrick.rb:59:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70023840331060/variables" for 127.0.0.1 at 2016-01-08 09:56:43 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.en_US.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /bootstrap-formhelpers-countries.en_US.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /bootstrap-formhelpers-countries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /jquery-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.format.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /bootstrap-formhelpers-phone.format.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /bootstrap-formhelpers-phone.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.3.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /jquery-1.3.2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.4.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /jquery-1.4.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /jquery-1.4.4.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.7.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /jquery-1.7.2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-latest.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /jquery-latest.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /jquery.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /jquery.smartWizard-2.0.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /jquery.smartWizard-2.0.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.addresspicker.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /jquery.ui.addresspicker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:46 +0200
+Served asset /nested_form.js - 304 Not Modified (0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2016-01-08 09:56:51 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0nUoD26fge/GtvmpxCThOKUv2prUnzX/FL92I0J0SuE=", "username"=>"bsaral", "password"=>"[FILTERED]", "commit"=>"Giriş Yap"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` = 'bsaral' LIMIT 1
+Redirected to http://localhost:3000/forms
+Completed 302 Found in 85ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/forms" for 127.0.0.1 at 2016-01-08 09:56:51 +0200
+Processing by FormsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mForm Load (0.2ms)[0m  SELECT `forms`.* FROM `forms` 
+  Rendered forms/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 81ms (Views: 36.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /jquery-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.format.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /bootstrap-formhelpers-phone.format.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /bootstrap-formhelpers-countries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.en_US.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /bootstrap-formhelpers-countries.en_US.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.3.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /jquery-1.3.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /bootstrap-formhelpers-phone.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.4.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /jquery-1.4.2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /jquery-1.4.4.min.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery-1.7.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /jquery-1.7.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-latest.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /jquery-latest.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /jquery.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /jquery.smartWizard-2.0.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /jquery.smartWizard-2.0.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.addresspicker.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /jquery.ui.addresspicker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:52 +0200
+Served asset /nested_form.js - 304 Not Modified (0ms)
+
+
+Started GET "/forms/new" for 127.0.0.1 at 2016-01-08 09:56:55 +0200
+Processing by FormsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered forms/_firma.html.erb (9.7ms)
+  Rendered forms/_dil.html.erb (0.7ms)
+  Rendered forms/_bilgisayar.html.erb (1.9ms)
+  Rendered forms/_proje.html.erb (1.6ms)
+  Rendered forms/_sertifika.html.erb (1.5ms)
+  Rendered forms/_referans.html.erb (2.6ms)
+  Rendered forms/_firma.html.erb (6.0ms)
+  Rendered forms/_dil.html.erb (0.3ms)
+  Rendered forms/_bilgisayar.html.erb (0.9ms)
+  Rendered forms/_proje.html.erb (0.6ms)
+  Rendered forms/_sertifika.html.erb (0.6ms)
+  Rendered forms/_referans.html.erb (0.8ms)
+  Rendered forms/_form.html.erb (100.2ms)
+  Rendered forms/new.html.erb within layouts/application (147.9ms)
+Completed 200 OK in 461ms (Views: 195.6ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /jquery-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.en_US.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /bootstrap-formhelpers-countries.en_US.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /bootstrap-formhelpers-countries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.format.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /bootstrap-formhelpers-phone.format.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /bootstrap-formhelpers-phone.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.3.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /jquery-1.3.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.4.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /jquery-1.4.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /jquery-1.4.4.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.7.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /jquery-1.7.2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-latest.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /jquery-latest.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /jquery.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /jquery.smartWizard-2.0.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /jquery.smartWizard-2.0.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.addresspicker.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /jquery.ui.addresspicker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+Served asset /nested_form.js - 304 Not Modified (0ms)
+
+
+Started GET "/images/loader.gif" for 127.0.0.1 at 2016-01-08 09:56:56 +0200
+
+ActionController::RoutingError (No route matches [GET] "/images/loader.gif"):
+  actionpack (3.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.11) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.11) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.4) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.4) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.11) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.4) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/application.rb:223:in `call'
+  rack (1.4.4) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.11) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.4) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/forms" for 127.0.0.1 at 2016-01-08 09:57:39 +0200
+Processing by FormsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0nUoD26fge/GtvmpxCThOKUv2prUnzX/FL92I0J0SuE=", "form"=>{"ad"=>"", "soyad"=>"", "uyruk"=>"", "tc"=>"", "medeni"=>"Seçiniz", "dogum(3i)"=>"8", "dogum(2i)"=>"1", "dogum(1i)"=>"2016", "ulke"=>"Turkey", "il"=>"", "ilce"=>"", "adres"=>"", "evtel"=>"", "ceptel"=>"", "askerlik"=>"Seçiniz", "engel"=>"", "egitim"=>"Lise", "lise_adi"=>"", "lise_tur"=>"Seçiniz", "lise_bol"=>"Seçiniz", "lise_derece"=>"", "lise_baslangic(3i)"=>"8", "lise_baslangic(2i)"=>"1", "lise_baslangic(1i)"=>"2016", "lise_bitis(3i)"=>"8", "lise_bitis(2i)"=>"1", "lise_bitis(1i)"=>"2016", "seviye"=>"Seçiniz", "uni_adi"=>"", "uni_derece"=>"", "uni_baslangic(3i)"=>"8", "uni_baslangic(2i)"=>"1", "uni_baslangic(1i)"=>"2016", "uni_bitis(3i)"=>"8", "uni_bitis(2i)"=>"1", "uni_bitis(1i)"=>"2016", "dal_fak"=>"", "dal_bol"=>"", "firmas_attributes"=>{"0"=>{"firma_adi"=>"", "baslama(3i)"=>"8", "baslama(2i)"=>"1", "baslama(1i)"=>"2013", "bitis(3i)"=>"8", "bitis(2i)"=>"1", "bitis(1i)"=>"2016", "sektor"=>"Seçiniz", "bolum"=>"Seçiniz", "pozisyon"=>"Seçiniz"}, "1452239836149"=>{"firma_adi"=>"", "baslama(3i)"=>"8", "baslama(2i)"=>"1", "baslama(1i)"=>"2016", "bitis(3i)"=>"8", "bitis(2i)"=>"1", "bitis(1i)"=>"2016", "sektor"=>"Seçiniz", "bolum"=>"Seçiniz", "pozisyon"=>"Seçiniz"}, "1452239838249"=>{"firma_adi"=>"", "baslama(3i)"=>"8", "baslama(2i)"=>"1", "baslama(1i)"=>"2016", "bitis(3i)"=>"8", "bitis(2i)"=>"1", "bitis(1i)"=>"2016", "sektor"=>"Seçiniz", "bolum"=>"Seçiniz", "pozisyon"=>"Seçiniz"}, "1452239839925"=>{"firma_adi"=>"", "baslama(3i)"=>"8", "baslama(2i)"=>"1", "baslama(1i)"=>"2016", "bitis(3i)"=>"8", "bitis(2i)"=>"1", "bitis(1i)"=>"2016", "sektor"=>"Seçiniz", "bolum"=>"Seçiniz", "pozisyon"=>"Seçiniz"}}, "dils_attributes"=>{"0"=>{"dil_adi"=>"Seçiniz", "dil_seviye"=>"Başlangıç"}, "1452239847492"=>{"dil_adi"=>"Seçiniz", "dil_seviye"=>"Seçiniz"}, "1452239848780"=>{"dil_adi"=>"Seçiniz", "dil_seviye"=>"Seçiniz"}}, "bilgisayars_attributes"=>{"0"=>{"kategori"=>"Seçiniz", "bilgi"=>"Seçiniz", "seviye"=>"Seçiniz"}}, "projes_attributes"=>{"0"=>{"proje_adi"=>"", "site"=>""}}, "sertifikas_attributes"=>{"0"=>{"kurs"=>"", "sertifika_adi"=>""}}, "referans_attributes"=>{"0"=>{"ref_ad"=>"", "ref_poz"=>"", "mail"=>""}, "1452239843646"=>{"ref_ad"=>"", "ref_poz"=>"", "mail"=>""}}, "onyazi"=>"", "ozgecmis"=>""}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `forms` (`ad`, `adres`, `askerlik`, `ceptel`, `cinsiyet`, `created_at`, `dal_bol`, `dal_fak`, `dogum`, `egitim`, `ehliyet`, `engel`, `evtel`, `fakulte`, `il`, `ilce`, `image`, `lise_adi`, `lise_baslangic`, `lise_bitis`, `lise_bol`, `lise_derece`, `lise_tur`, `medeni`, `okul_adi`, `onyazi`, `ozgecmis`, `seviye`, `sigara`, `soyad`, `tc`, `ulke`, `uni_adi`, `uni_baslangic`, `uni_bitis`, `uni_dal`, `uni_derece`, `updated_at`, `uyruk`) VALUES ('', '', 'Seçiniz', '', NULL, '2016-01-08 07:57:39', '', '', '2016-01-08 00:00:00', 'Lise', NULL, '', '', NULL, '', '', NULL, '', '2016-01-08 00:00:00', '2016-01-08 00:00:00', 'Seçiniz', NULL, 'Seçiniz', 'Seçiniz', NULL, '', '', 'Seçiniz', NULL, '', '', 'Turkey', '', '2016-01-08 00:00:00', '2016-01-08 00:00:00', NULL, NULL, '2016-01-08 07:57:39', '')
+  [1m[36mSQL (11.5ms)[0m  [1mINSERT INTO `firmas` (`baslama`, `bitis`, `bolum`, `created_at`, `firma_adi`, `form_id`, `pozisyon`, `sektor`, `updated_at`) VALUES (NULL, NULL, NULL, '2016-01-08 07:57:39', NULL, 1, NULL, NULL, '2016-01-08 07:57:39')[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `dils` (`created_at`, `dil_adi`, `dil_seviye`, `form_id`, `updated_at`) VALUES ('2016-01-08 07:57:40', NULL, NULL, 1, '2016-01-08 07:57:40')
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `bilgisayars` (`bilgi`, `created_at`, `form_id`, `kategori`, `seviye`, `updated_at`) VALUES (NULL, '2016-01-08 07:57:40', 1, NULL, NULL, '2016-01-08 07:57:40')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `projes` (`created_at`, `form_id`, `proje_adi`, `site`, `updated_at`) VALUES ('2016-01-08 07:57:40', 1, NULL, NULL, '2016-01-08 07:57:40')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `sertifikas` (`created_at`, `form_id`, `kurs`, `sertifika_adi`, `updated_at`) VALUES ('2016-01-08 07:57:40', 1, NULL, NULL, '2016-01-08 07:57:40')[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `referans` (`created_at`, `form_id`, `mail`, `ref_ad`, `ref_poz`, `updated_at`) VALUES ('2016-01-08 07:57:40', 1, NULL, NULL, NULL, '2016-01-08 07:57:40')
+  [1m[36m (40.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/forms/1
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (21.4ms)[0m  [1mUPDATE `forms` SET `medeni` = NULL, `updated_at` = '2016-01-08 07:57:40' WHERE `forms`.`id` = 1[0m
+  [1m[35m (38.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  UPDATE `forms` SET `askerlik` = NULL, `updated_at` = '2016-01-08 07:57:40' WHERE `forms`.`id` = 1
+  [1m[36m (42.0ms)[0m  [1mCOMMIT[0m
+Completed 302 Found in 188ms (ActiveRecord: 156.0ms)
+
+
+Started GET "/forms/1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Processing by FormsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mForm Load (0.3ms)[0m  [1mSELECT `forms`.* FROM `forms` WHERE `forms`.`id` = 1 LIMIT 1[0m
+  [1m[35mFirma Load (0.3ms)[0m  SELECT `firmas`.* FROM `firmas` WHERE `firmas`.`form_id` = 1
+  Rendered forms/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 45ms (Views: 42.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.en_US.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /bootstrap-formhelpers-countries.en_US.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /jquery-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /bootstrap-formhelpers-countries.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.format.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /bootstrap-formhelpers-phone.format.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /bootstrap-formhelpers-phone.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.3.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /jquery-1.3.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.4.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /jquery-1.4.2.min.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /jquery-1.4.4.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.7.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /jquery-1.7.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-latest.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /jquery-latest.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /jquery.min.js - 304 Not Modified (36ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /jquery.smartWizard-2.0.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /jquery.smartWizard-2.0.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.addresspicker.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /jquery.ui.addresspicker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:40 +0200
+Served asset /nested_form.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` IS NULL LIMIT 1[0m
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /jquery-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.en_US.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /bootstrap-formhelpers-countries.en_US.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /bootstrap-formhelpers-countries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.format.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /bootstrap-formhelpers-phone.format.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /bootstrap-formhelpers-phone.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery-1.3.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /jquery-1.3.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.4.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /jquery-1.4.2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /jquery-1.4.4.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-latest.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /jquery-latest.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.7.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /jquery-1.7.2.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /jquery.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /jquery.smartWizard-2.0.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /jquery.smartWizard-2.0.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.addresspicker.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /jquery.ui.addresspicker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:45 +0200
+Served asset /nested_form.js - 304 Not Modified (0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`username` IS NULL LIMIT 1[0m
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 52ms (Views: 50.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /jquery-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /bootstrap-formhelpers-countries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.en_US.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /bootstrap-formhelpers-countries.en_US.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.format.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /bootstrap-formhelpers-phone.format.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /bootstrap-formhelpers-phone.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.3.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /jquery-1.3.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery-1.4.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /jquery-1.4.2.min.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery-1.7.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /jquery-1.7.2.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /jquery-1.4.4.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-latest.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /jquery-latest.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /jquery.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /jquery.smartWizard-2.0.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /jquery.smartWizard-2.0.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.addresspicker.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /jquery.ui.addresspicker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:57:47 +0200
+Served asset /nested_form.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`username` IS NULL LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /bootstrap-dropdown.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /jquery-popover.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.en_US.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /bootstrap-formhelpers-countries.en_US.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-countries.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /bootstrap-formhelpers-countries.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.format.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /bootstrap-formhelpers-phone.format.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-formhelpers-phone.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /bootstrap-formhelpers-phone.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /bootstrap-popover.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.3.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /jquery-1.3.2.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.4.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /jquery-1.4.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /jquery-1.4.4.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.7.2.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /jquery-1.7.2.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-latest.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /jquery-latest.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui-1.8.7.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /jquery-ui-1.8.7.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /jquery.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /jquery.smartWizard-2.0.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.smartWizard-2.0.min.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /jquery.smartWizard-2.0.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.tokeninput.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /jquery.tokeninput.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.addresspicker.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /jquery.ui.addresspicker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/nested_form.js?body=1" for 127.0.0.1 at 2016-01-08 09:58:01 +0200
+Served asset /nested_form.js - 304 Not Modified (0ms)

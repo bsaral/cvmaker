@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  form_id: 1
+  firma_adi: MyString
+  baslama: 2013-02-13 23:52:12
+  bitis: 2013-02-13 23:52:12
+  sektor: MyString
+  bolum: MyString
+  pozisyon: MyString
+
+two:
+  form_id: 1
+  firma_adi: MyString
+  baslama: 2013-02-13 23:52:12
+  bitis: 2013-02-13 23:52:12
+  sektor: MyString
+  bolum: MyString
+  pozisyon: MyString

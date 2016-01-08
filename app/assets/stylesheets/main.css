@@ -1,0 +1,224 @@
+/* BETÜL SARAL 2013 */
+
+body {overflow:auto; }
+
+h1.boyut{
+	font-size:40px;
+	color:#357EC7;
+	position:relative;top:-20px;left:2in;
+}
+
+p.boyut{
+	color:#41627E;
+	line-size:30px;
+}
+
+#popover1 {
+  position: absolute;
+}
+
+div#konum{
+	position:relative;top:30px;
+	background-color: #FDEEF4;
+	overflow:hidden;
+}
+
+div.konum{
+	margin:80px 100px;
+	
+	
+}
+
+div.step2konum{
+	margin:50px 150px;
+	
+	
+}
+div.step3konum{
+	margin:50px 100px;
+	
+	
+}
+
+.boy{
+	width:4in;
+}
+
+.konum4{
+	position:relative;top:-150px;
+}
+
+div#soyadboy{
+
+	width:4in;
+	float:right;
+	margin:-90px;
+	padding:0 100px;
+}  
+
+div#soyadboy3{
+
+	width:4in;
+	float:right;
+	margin:-80px;
+	padding:0 100px;
+}  
+
+div#soyadboydil{
+
+	width:4in;
+	float:right;
+	margin:-52px;
+	padding:0 180px;
+}  
+
+#dil{
+
+	position:relative;
+	top:-110px;
+	left:8in;
+	
+}  
+
+#dil2{
+
+	position:relative;
+	top:-52px;
+	left:7in;
+	
+}  
+
+#ekle{
+
+	position:relative;
+	top:-207px;
+	left:9.7in;
+	
+}  
+
+#ekle2{
+
+	position:relative;
+	top:-53px;
+	left:9.8in;
+	
+}  
+
+#ekle3{
+
+	position:relative;
+	top:-53px;
+	left:6.3in;
+	width:90px;
+	
+}  
+
+div#soyadboyradio{
+	float:right;
+	margin:0px;
+	padding:0 1.5in;
+}  
+
+.radiobutton{
+	position:relative;
+	top:-17px;
+	left:20px;
+}
+	
+.radiobutton2{
+	position:relative;
+	top:-42px;
+	left:90px;
+}
+
+.radiobutton2label{
+	position:relative;
+	top:-59px;
+	left:110px;
+}
+
+.radiobuttonis2{
+	position:relative;
+	top:-42px;
+	left:150px;
+}
+
+.radiobuttonis2label{
+	position:relative;
+	top:-59px;
+	left:170px;
+}
+
+div#selectbox{
+	margin:-130px;
+	padding:0 5in;
+}
+
+div#datetime{
+	width:8in;
+	padding:1.5in 0in;
+}
+	
+div#ulke{
+	margin:-130px;
+	padding:0 1.3in;
+}
+
+div#il{
+	padding:0.5in 4in;
+}
+
+div#ilce{
+	float:right;
+	margin:-140px;
+	padding:0 100px;
+}
+
+div#ev{
+	width:5in;
+	float:right;
+	margin:-170px;
+	padding:0 100px;
+}  
+
+div#cep{
+	width:4in;
+	float:right;
+	margin:-80px;
+	padding:0 105px;
+}  
+
+
+.gizli {
+	display:none;
+	float:left;
+	margin:-50px;
+	padding:0 50px;
+	}
+	
+.gizlicinsiyet{display:none;}
+.gizlicinsiyet2{display:none;}
+.gizlicinsiyet3{display:none;}
+.gizlicinsiyet4{display:none;}
+.gizlicinsiyet5{display:none;}
+.gizlicinsiyet6{display:none;}
+
+div#askerboy{
+
+	width:4in;
+	float:right;
+	margin:10px -100px;
+	
+} 
+
+div#sigara{
+	width:5in;
+	float:right;
+	margin:-130px;
+	padding:0 220px;
+} 
+
+.renk{
+	font: bold 16px Verdana, Arial, Helvetica, sans-serif; 
+    color:#5A5655;   
+}
